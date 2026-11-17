@@ -820,6 +820,18 @@
     transform: translateY(0);
   }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1768907467150988');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1768907467150988&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -1201,5 +1213,17 @@
   reveals.forEach(r => observer.observe(r));
 </script>
 
+<!-- Pass fbclid/UTM params to Shopify + track buy-button clicks -->
+<script>
+(function(){
+  var qs = window.location.search.slice(1);
+  document.querySelectorAll('a[href*="ascent.com.co/products"]').forEach(function(a){
+    if (qs) a.href += (a.href.indexOf('?') > -1 ? '&' : '?') + qs;
+    a.addEventListener('click', function(){
+      if (window.fbq) fbq('track', 'ViewContent', {content_name: 'Aire - Pet LP', content_ids: ['aire'], content_type: 'product'});
+    });
+  });
+})();
+</script>
 </body>
 </html>
